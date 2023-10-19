@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
         xSpeed = Input.GetAxisRaw("Horizontal");
             animator.SetFloat("speed", Mathf.Abs(xSpeed));
 
-        
-        direction = new Vector2(xSpeed * 6f, rigit.velocity.y);
+        Debug.Log(xSpeed);
+        direction = new Vector2(xSpeed * 16f, rigit.velocity.y);
         //rigit.AddForce(direction * horforce);
         rigit.velocity = direction;
         //if (Input.GetKey(KeyCode.Space))
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(rb.velocity.x, 5.0f);
+        rb.velocity = new Vector2(rb.velocity.x, 26.0f);
         canJump = false; // Ngăn sprite nhảy liên tục
     }
     private void OnCollisionEnter2D(Collision2D collision)

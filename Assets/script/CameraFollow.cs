@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     GameObject Player;
     [SerializeField]
-    Vector3 Offset = new Vector3(0, (float)2.6, 0);
+    Vector3 Offset = new Vector3(0, (float)5, 0);
     // Start is cal
     // led before the first frame update
     void Start()
