@@ -62,11 +62,12 @@ public class MonsterController : MonoBehaviour
                     animator.SetFloat("died", Mathf.Abs(died));
 
                     Rigidbody2D rb = targetObject.GetComponent<Rigidbody2D>();         
-                    rb.velocity = new Vector2(rb.velocity.x, 18.0f);
-                    Invoke("YourFunction", 1f);
+                    rb.velocity = new Vector2(rb.velocity.x, 21.0f);
+                    Invoke("YourFunction", 0.5f);
                    
                 }
                 else {
+
                     targetObject.gameObject.transform.position = new Vector3(-2f, 7f, 0f);
                 }
                 //else 

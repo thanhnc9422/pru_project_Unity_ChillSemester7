@@ -7,6 +7,7 @@ TagManager:
   - wall
   - player
   - ground
+  - titlemap
   layers:
   - Default
   - TransparentFX

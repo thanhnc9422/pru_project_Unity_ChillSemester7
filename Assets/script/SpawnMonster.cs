@@ -25,8 +25,8 @@ public class SpawnMonster : MonoBehaviour
     {
         for (int i = 0; i < 100; i++)
         {
-            float spawnX = Random.Range(0, 40);
-            int[] valuesToRandom = { -40, 40};
+            float spawnX = Random.Range(0, 50);
+            int[] valuesToRandom = { -50, 50};
             int spawnY = valuesToRandom[Random.Range(0, valuesToRandom.Length)];
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0);
