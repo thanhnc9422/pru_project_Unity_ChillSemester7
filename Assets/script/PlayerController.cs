@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        rigit = gameObject.GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        rigit = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame

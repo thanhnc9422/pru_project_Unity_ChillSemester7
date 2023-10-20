@@ -2,40 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyDamage : MonoBehaviour
 {
-
-    [SerializeField]
-    GameObject targetObject;
-    float speed = 0.8f;
-    Rigidbody2D rd;
-
+    
     public float damage;
     float dameRate = 0.5f;
     public float pushBackForce;
     float nextDamage;
-    // Start is called before the first frame update
 
     void Start()
     {
         nextDamage = 0f;
-        rd = gameObject.GetComponent<Rigidbody2D>();
-        rd.velocity = new Vector2(0.8f, rd.velocity.y);
     }
+
+    // Update is called once per frame
     void Update()
     {
+        
     }
-    void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "player" && nextDamage < Time.time)
+        if(other.gameObject.tag == "player" && nextDamage < Time.time)
         {
-            PlayerHeart thePlayerHealth = collision.gameObject.GetComponent<PlayerHeart>();
+            PlayerHeart thePlayerHealth = other.gameObject.GetComponent<PlayerHeart>();
             thePlayerHealth.addDamage(damage);
             nextDamage = dameRate + Time.time;
 
-            pushBack(collision.transform);
+            pushBack(other.transform);
         }
-   
     }
 
     void pushBack(Transform pushedObject)
