@@ -9,6 +9,7 @@ public class MonsterController : MonoBehaviour
     float speed = 6f;
     Rigidbody2D rd;
     float xSpeed, ySpeed;
+    public float damage;
     [SerializeField] private Animator animator;
     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
@@ -57,19 +58,30 @@ public class MonsterController : MonoBehaviour
             if (collision.CompareTag("player"))
             {
                 Debug.Log((int)transform.position.y + " " + (int)targetObject.transform.position.y);
-                if ((transform.position.y <0 && (int)transform.position.y - (int)targetObject.transform.position.y > 0) || (transform.position.y>0 && (int)transform.position.y - (int)targetObject.transform.position.y < 0))
+                if ((transform.position.y < 0 && (int)transform.position.y - (int)targetObject.transform.position.y > 0) ||
+                    (transform.position.y > 0 && (int)transform.position.y - (int)targetObject.transform.position.y < 0))
                 {
+                    // Thực hiện các hành động khác tại đây (như animation, di chuyển, vv.) 
+                    // Nếu không muốn trừ máu, không gọi addDamage ở đây.
                     animator.SetFloat("died", Mathf.Abs(died));
-
-                    Rigidbody2D rb = targetObject.GetComponent<Rigidbody2D>();         
+                    Rigidbody2D rb = targetObject.GetComponent<Rigidbody2D>();
                     rb.velocity = new Vector2(rb.velocity.x, 21.0f);
                     Invoke("YourFunction", 0.5f);
-                   
                 }
-                else {
+                else
+                {
+                    // Trường hợp khác: trừ máu bình thường
+                    PlayerHealth thePlayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+                    thePlayerHealth.addDamage(damage);
+                }
 
-                    targetObject.gameObject.transform.position = new Vector3(-2f, 7f, 0f);
-                }
+
+                //else {
+
+                //  targetObject.gameObject.transform.position = new Vector3(-2f, 7f, 0f);
+                //}
+
+
                 //else 
                 //{
                 //    animator.SetInteger("isDied", 1);
@@ -85,7 +97,8 @@ public class MonsterController : MonoBehaviour
                 //}
             }
         }
-            }
+    }
+
     void YourFunction()
     {
         

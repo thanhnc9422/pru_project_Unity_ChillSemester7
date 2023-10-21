@@ -13,6 +13,7 @@ public class ItemController : MonoBehaviour
     Vector3 spawnPosition;
     [SerializeField]
     GameObject targetObject;
+    PlayerHealth playerHealth;
     void Start()
     {
         positionSpawn = new List<Vector3>();
@@ -28,6 +29,7 @@ public class ItemController : MonoBehaviour
         positionSpawn.Add(new Vector3(27, 7.5f, 0));
         int randomIndex = Random.Range(0, positionSpawn.Count);
         spawnPosition = positionSpawn[randomIndex];
+        playerHealth = GameObject.FindObjectOfType<PlayerHealth>();
     }
     void Update()
     {
@@ -38,7 +40,10 @@ public class ItemController : MonoBehaviour
         {
             int randomIndex = Random.Range(0, positionSpawn.Count);
             spawnPosition = positionSpawn[randomIndex];
-          gameObject.transform.position = spawnPosition;
+            gameObject.transform.position = spawnPosition;
+
+            // Gọi hàm hồi máu trong PlayerController khi ăn item
+            playerHealth.Heal(playerHealth.maxHealth * 0.1f);
         }
     }
 }

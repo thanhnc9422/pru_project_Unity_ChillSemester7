@@ -32,12 +32,12 @@ public class EnemyController : MonoBehaviour
         }
         transform.Translate(movement);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
       
         if (collision.CompareTag("player"))
         {
             targetObject.gameObject.transform.position = new Vector3(-2f, 7f, 0f);
         }
-    }
+    }*/
 }

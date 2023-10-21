@@ -12,7 +12,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigit;
     private bool canJump = true;
     private SpriteRenderer spriteRenderer;
-
+    [SerializeField]
+    private AudioSource jumpSound;
+    private bool isBlinking = false;
+    private PlayerBlink playerBlink;
 
     float xSpeed, ySpped;
     // Start is called before the first frame update
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigit = gameObject.GetComponent<Rigidbody2D>();
+        playerBlink = GetComponent<PlayerBlink>();
     }
 
     // Update is called once per frame
@@ -51,13 +55,21 @@ public class PlayerController : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(rb.velocity.x, 32.0f);
+        // Phát âm thanh khi nhảy
+        jumpSound.Play();
         canJump = false; // Ngăn sprite nhảy liên tục
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Khi sprite va chạm với mặt đất, cho phép nhảy lại
-     
-            canJump = true;
+        if (collision.gameObject.CompareTag("enemy") && !isBlinking)
+        {
+            isBlinking = true;
+            playerBlink.StartBlinking();
+            // Xử lý logic khác khi PlayerController va chạm với EnemyController
+        }
+        canJump = true;
     }
 
 }
