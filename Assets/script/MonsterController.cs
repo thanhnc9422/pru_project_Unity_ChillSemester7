@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-
-    [SerializeField]
+    Transform target;
     GameObject targetObject;
     float speed = 6f;
     Rigidbody2D rd;
     float xSpeed, ySpeed;
-    [SerializeField]
-    private Animator animator;
+    [SerializeField] private Animator animator;
     private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
-    public Transform target;
+   
     public float moveSpeed = 3.0f;
     private float died = 1f;
 
 
     void Start()
     {
+        targetObject = GameObject.Find("Square");
+        target = targetObject.transform;
         rd = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }

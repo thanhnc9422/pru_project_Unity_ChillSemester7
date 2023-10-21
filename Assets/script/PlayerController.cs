@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(canJump);
         if (canJump && Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviour
         xSpeed = Input.GetAxisRaw("Horizontal");
             animator.SetFloat("speed", Mathf.Abs(xSpeed));
 
-        Debug.Log(xSpeed);
         direction = new Vector2(xSpeed * 21f, rigit.velocity.y);
         //rigit.AddForce(direction * horforce);
         rigit.velocity = direction;
