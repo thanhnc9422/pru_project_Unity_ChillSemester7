@@ -12,6 +12,7 @@ public class MonsterController : MonoBehaviour
     public float damage;
     [SerializeField] private Animator animator;
     private SpriteRenderer spriteRenderer;
+    PlayerBlink playerBlink;
     // Start is called before the first frame update
    
     public float moveSpeed = 3.0f;
@@ -73,6 +74,7 @@ public class MonsterController : MonoBehaviour
                     // Trường hợp khác: trừ máu bình thường
                     PlayerHealth thePlayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
                     thePlayerHealth.addDamage(damage);
+                    GameObject.FindGameObjectWithTag("player").GetComponent<PlayerBlink>().StartBlinking();
                 }
 
 

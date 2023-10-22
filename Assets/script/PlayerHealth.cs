@@ -48,8 +48,7 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(float amount)
     {
         currentHealth += amount;
-        // ??m b?o máu không v??t quá giá tr? t?i ?a
         currentHealth = Mathf.Min(currentHealth, maxHealth);
-        // C?p nh?t UI ho?c hi?u ?ng h?i máu n?u c?n
+        playerHealthSlider.value = currentHealth;
     }
 }
