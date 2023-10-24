@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     [SerializeField]
     private AudioClip jumpSound;
-    private bool isBlinking = false;
     private PlayerBlink playerBlink;
 
     float xSpeed, ySpped;

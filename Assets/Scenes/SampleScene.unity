@@ -10975,6 +10975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
+  hurtSound: {fileID: 8300000, guid: 1b83dbe6dff3ffd44b4e2994a6b7a39d, type: 3}
+  gameOverSound: {fileID: 8300000, guid: 1c079f83752bd534bab6b55c888a9863, type: 3}
   bloodEffect: {fileID: 0}
   playerHealthSlider: {fileID: 1601550435}
 --- !u!114 &1163381017

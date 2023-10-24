@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +8,10 @@ public class PlayerHealth : MonoBehaviour
 
     public float maxHealth;
     float currentHealth;
+    [SerializeField]
+    private AudioClip hurtSound;
+    [SerializeField]
+    private AudioClip gameOverSound;
 
     public GameObject bloodEffect;
     // Start is called before the first frame update
@@ -32,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
         if (damage <= 0)
             return;
         currentHealth -= damage;
+        AudioManager.Instance.PlayAudioOneShot(hurtSound);
         playerHealthSlider.value = currentHealth;
 
         if (currentHealth <= 0)
@@ -42,7 +47,8 @@ public class PlayerHealth : MonoBehaviour
     {
         Instantiate(bloodEffect, transform.position, transform.rotation);
         gameObject.SetActive(false);
-        //Destroy(gameObject);
+        AudioManager.Instance.PlayAudioOneShot(gameOverSound);
+       // Destroy(gameObject);
     }
 
     public void Heal(float amount)
