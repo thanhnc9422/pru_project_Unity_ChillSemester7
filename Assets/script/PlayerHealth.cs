@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         AudioManager.Instance.PlayAudioOneShot(hurtSound);
         playerHealthSlider.value = currentHealth;
-
+        
         if (currentHealth <= 0)
             makeDead();
     }
@@ -48,7 +48,8 @@ public class PlayerHealth : MonoBehaviour
         Instantiate(bloodEffect, transform.position, transform.rotation);
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudioOneShot(gameOverSound);
-       // Destroy(gameObject);
+        GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+        // Destroy(gameObject);
     }
 
     public void Heal(float amount)
