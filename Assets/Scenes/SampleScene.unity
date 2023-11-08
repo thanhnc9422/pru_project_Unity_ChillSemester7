@@ -10858,7 +10858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bfef0f42a9fae4abd6aa6e2bd1b81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   pushBackForce: 15
 --- !u!1 &1163381008
 GameObject:
@@ -11071,9 +11071,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab4cfffe6c3f644a0a9a2062f85d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 100
   hurtSound: {fileID: 8300000, guid: 1b83dbe6dff3ffd44b4e2994a6b7a39d, type: 3}
   gameOverSound: {fileID: 8300000, guid: 1c079f83752bd534bab6b55c888a9863, type: 3}
+  healTextPrefab: {fileID: 9147592821064758065, guid: 1ade9fc3da75f7d4585a70a2f6cca943, type: 3}
+  damageTextPrefab: {fileID: 9147592821064758065, guid: 1ade9fc3da75f7d4585a70a2f6cca943, type: 3}
+  healTextDisplayTime: 2
+  damageTextDisplayTime: 0.001
   bloodEffect: {fileID: 0}
   playerHealthSlider: {fileID: 1601550435}
 --- !u!114 &1163381017
@@ -11434,7 +11438,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -12285,7 +12289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bfef0f42a9fae4abd6aa6e2bd1b81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 30
   pushBackForce: 15
 --- !u!1 &2123928637
 GameObject:

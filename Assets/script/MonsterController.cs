@@ -71,32 +71,11 @@ public class MonsterController : MonoBehaviour
                 }
                 else
                 {
-                    // Trường hợp khác: trừ máu bình thường
+                    // Trừ máu và hiển thị văn bản trừ máu
                     PlayerHealth thePlayerHealth = collision.gameObject.GetComponent<PlayerHealth>();
                     thePlayerHealth.addDamage(damage);
                     GameObject.FindGameObjectWithTag("player").GetComponent<PlayerBlink>().StartBlinking();
                 }
-
-
-                //else {
-
-                //  targetObject.gameObject.transform.position = new Vector3(-2f, 7f, 0f);
-                //}
-
-
-                //else 
-                //{
-                //    animator.SetInteger("isDied", 1);
-                //    gameObject.SetActive(false);
-
-                //}
-                //else
-                //{
-                //    speed = -speed;
-                //    Debug.Log(speed);
-                //    Debug.Log("run1");
-                //    rd.velocity = new Vector2(speed, rd.velocity.y);
-                //}
             }
         }
     }

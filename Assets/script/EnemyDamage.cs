@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,13 +22,14 @@ public class EnemyDamage : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.gameObject.tag == "player" && nextDamage < Time.time)
     {
-        if (other.gameObject.tag == "player" && nextDamage < Time.time)
-        {
-            PlayerHealth thePlayerHealth = other.gameObject.GetComponent<PlayerHealth>();
-            thePlayerHealth.addDamage(damage);
-            nextDamage = dameRate + Time.time;
-        }
+        PlayerHealth thePlayerHealth = other.gameObject.GetComponent<PlayerHealth>();
+        thePlayerHealth.addDamage(damage);
+        nextDamage = dameRate + Time.time;
     }
+}
+
 
 }
