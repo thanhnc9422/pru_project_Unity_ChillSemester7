@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private PlayerBlink playerBlink;
 
     float xSpeed, ySpped;
+    public float countTime;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +50,6 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = false; // Không quay
         }
-
     }
     private void Jump()
     {
