@@ -49,7 +49,8 @@ public class PlayerHealth : MonoBehaviour
         //Instantiate(bloodEffect, transform.position, transform.rotation); do cai nay
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudioOneShot(gameOverSound);
-        // Destroy(gameObject);
+         Destroy(gameObject);
+        Application.Quit();
         SceneManager.LoadScene("GameOver");
     }
 
