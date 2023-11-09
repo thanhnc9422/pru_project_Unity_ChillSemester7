@@ -14,9 +14,12 @@ public class ItemController : MonoBehaviour
     [SerializeField]
     GameObject targetObject;
     PlayerHealth playerHealth;
+    int totalScore;
+
+  
     void Start()
     {
-
+        totalScore = PlayerPrefs.GetInt("Point", 0);
         int randomIndex = Random.Range(0, positionSpawn.Count);
         spawnPosition = positionSpawn[randomIndex];
         playerHealth = GameObject.FindObjectOfType<PlayerHealth>();
@@ -28,6 +31,7 @@ public class ItemController : MonoBehaviour
     {
         if (collision.CompareTag("player"))
         {
+            totalScore += 5;
             int randomIndex = Random.Range(0, positionSpawn.Count);
             spawnPosition = positionSpawn[randomIndex];
             gameObject.transform.position = spawnPosition;
@@ -35,5 +39,7 @@ public class ItemController : MonoBehaviour
             // Gọi hàm hồi máu trong PlayerController khi ăn item
             playerHealth.Heal(playerHealth.maxHealth * 0.1f);
         }
+        PlayerPrefs.SetInt("Score", totalScore);
+
     }
 }

@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     // led before the first frame update
     void Start()
     {
-
+        PlayerPrefs.SetInt("Score", 0);
     }
 
     // Update is called once per frame
