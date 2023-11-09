@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -48,7 +49,8 @@ public class PlayerHealth : MonoBehaviour
         //Instantiate(bloodEffect, transform.position, transform.rotation); do cai nay
         gameObject.SetActive(false);
         AudioManager.Instance.PlayAudioOneShot(gameOverSound);
-       // Destroy(gameObject);
+        // Destroy(gameObject);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void Heal(float amount)
